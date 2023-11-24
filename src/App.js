@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -15,7 +15,16 @@ function App() {
 
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://restaurant-list-server.vercel.app/restaurants');
+        dispatch(setRestaurants(response.data));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
+    fetchData();
     // Does the API call so that it's an easier call for components
     dispatch(setRestaurants());
     console.log(restaurants);

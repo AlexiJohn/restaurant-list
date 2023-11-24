@@ -13,23 +13,17 @@ const restaurantSlice = createSlice({
     
     reducers: {
         setRestaurants: (state, action) => {
-            //add proxy from server
-            const fetchData = async () => {
-                try {
-                  const response = await axios.get('http://localhost:5000/restaurants', {
-                    headers: {
-                      'Content-Type': 'application/json; charset=utf-8',
-                      'Access-Control-Allow-Origin': '*',
-                      'Server': 'Vercel',
-                    },
-                  });
-                  state.restaurantsState = response.data;
-                } catch (error) {
-                  console.error('Error fetching data:', error);
-                }
-              };
+            // //add proxy from server
+            // const fetchData = async () => {
+            //     try {
+            //       const response = await axios.get('https://restaurant-list-server.vercel.app/restaurants');
+            //       state.restaurantsState = response.data;
+            //     } catch (error) {
+            //       console.error('Error fetching data:', error);
+            //     }
+            //   };
           
-              fetchData();
+            //   fetchData();
 
         },
         setSelectedRestaurantState: (state,action) => {
