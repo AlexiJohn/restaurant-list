@@ -15,6 +15,9 @@ function App() {
 
 
   useEffect(() => {
+    let data;
+    
+    // created proxy server to bypass CORS
     const fetchData = async () => {
       try {
         const response = await axios.get('https://restaurant-list-server.vercel.app/restaurants');
@@ -25,9 +28,6 @@ function App() {
     };
 
     fetchData();
-    // Does the API call so that it's an easier call for components
-    dispatch(setRestaurants());
-    console.log(restaurants);
 
   }, []);
 
