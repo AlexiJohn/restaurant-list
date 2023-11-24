@@ -12,17 +12,6 @@ const restaurantSlice = createSlice({
     
     reducers: {
         setRestaurants: (state, action) => {
-            // //add proxy from server
-            // const fetchData = async () => {
-            //     try {
-            //       const response = await axios.get('https://restaurant-list-server.vercel.app/restaurants');
-            //       state.restaurantsState = response.data;
-            //     } catch (error) {
-            //       console.error('Error fetching data:', error);
-            //     }
-            //   };
-          
-            //   fetchData();
             console.log(action.payload)
             state.restaurants = action.payload
         },
