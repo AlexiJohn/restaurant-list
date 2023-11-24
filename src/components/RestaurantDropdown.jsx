@@ -16,7 +16,6 @@ function RestaurantDropdown() {
 
     const handleSelect = (state) => {
         const value = state;
-        console.log(value)
         dispatch(setSelectedRestaurantState(value));
         filterRestaurantByState(restaurants,value);
         

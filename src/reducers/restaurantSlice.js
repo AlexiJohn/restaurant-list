@@ -12,7 +12,6 @@ const restaurantSlice = createSlice({
     
     reducers: {
         setRestaurants: (state, action) => {
-            console.log(action.payload)
             state.restaurants = action.payload
         },
         setSelectedRestaurantState: (state,action) => {
