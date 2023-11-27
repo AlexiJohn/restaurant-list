@@ -9,7 +9,10 @@ function RestaurantList() {
     const { filteredRestaurants, selectedRestaurantState } = useSelector((state) => state.restaurant);
     const all = "All States";
     
-    const sortedRestaurants = [...filteredRestaurants].sort((a,b) => {return a.restaurant_name.localeCompare(b.restaurant_name);});
+    const sortedRestaurants = [...filteredRestaurants]
+        .sort((a,b) => {
+            return a.restaurant_name.localeCompare(b.restaurant_name);
+        });
     return(
         <>
         

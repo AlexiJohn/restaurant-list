@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setRestaurants } from './reducers/restaurantSlice';
 import RestaurantDropdown from './components/RestaurantDropdown';
 import RestaurantList from './components/RestaurantList';
+import SearchComponent from './components/RestaurantSearch';
 
 function App() {
 
@@ -15,7 +16,6 @@ function App() {
 
 
   useEffect(() => {
-    let data;
     
     // created proxy server to bypass CORS
     const fetchData = async () => {
@@ -40,6 +40,7 @@ function App() {
               <Card.Title>Restaurants</Card.Title>
               <Card.Text>Select a state and see which restaurants are available.</Card.Text>
               <RestaurantDropdown/>
+              <SearchComponent/>
               <RestaurantList/>
             </Card.Body>
           </Card>
