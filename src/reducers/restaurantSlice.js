@@ -18,6 +18,11 @@ const restaurantSlice = createSlice({
         },
         setSelectedRestaurantState: (state,action) => {
             state.selectedRestaurantState = action.payload
+
+            if (action.payload == "All States"){
+            state.searchedRestaurants = state.restaurants;
+            }
+            
         },
         setFilteredRestaurants: (state,action) => {
             state.filteredRestaurants = action.payload
