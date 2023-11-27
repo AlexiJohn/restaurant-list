@@ -8,6 +8,8 @@ import RestaurantTable from './RestaurantTableAll';
 function RestaurantList() {
     const { filteredRestaurants, selectedRestaurantState } = useSelector((state) => state.restaurant);
     const all = "All States";
+    
+    const sortedRestaurants = [...filteredRestaurants].sort((a,b) => {return a.restaurant_name.localeCompare(b.restaurant_name);});
     return(
         <>
         
@@ -17,7 +19,7 @@ function RestaurantList() {
             </>
         ) : (
             <>
-            {filteredRestaurants.map(restaurant => (
+            {sortedRestaurants.map(restaurant => (
                 <Card key={restaurant.restaurant_name} className="bg-light mb-3">
                     <Card.Body>
                     <Card.Title>{restaurant.restaurant_name}</Card.Title>

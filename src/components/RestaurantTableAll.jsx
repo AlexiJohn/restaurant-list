@@ -6,12 +6,16 @@ function RestaurantTable() {
     const { restaurants } = useSelector((state) => state.restaurant);
 
     const restaurantsByState = {};
-  restaurants.forEach(({ state, restaurant_name }) => {
+  
+    restaurants.forEach(({ state, restaurant_name }) => {
     if (!restaurantsByState[state]) {
       restaurantsByState[state] = [];
     }
     restaurantsByState[state].push(restaurant_name);
+    restaurantsByState[state].sort();
   });
+
+  console.log(restaurantsByState)
 
   return (
     <div className="container mt-4">

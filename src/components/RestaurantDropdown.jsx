@@ -12,7 +12,10 @@ function RestaurantDropdown() {
 
     const uniqueStates = [...new Set(restaurants.map(item => item.state))];
     const stateList = uniqueStates.map(state => ({ state }));
-    const options = stateList;
+    const options = stateList.sort((a,b) => {
+      return a.state.localeCompare(b.state);
+    });
+    
 
     const handleSelect = (state) => {
         const value = state;
@@ -35,7 +38,7 @@ function RestaurantDropdown() {
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => handleSelect('All States')}>Show All</Dropdown.Item>
-        {options.map((option) => (
+        {options.sort().map((option) => (
           <Dropdown.Item key={option.state} onClick={() => handleSelect(option.state)}>
             {option.state}
           </Dropdown.Item>
